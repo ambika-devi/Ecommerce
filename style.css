@@ -112,6 +112,20 @@ input {
   justify-content: center;
   margin: 1rem;
 }
+.pagination {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: large;
+}
+.pagination button {
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  margin: 0 0.5rem;
+}
+.pagination button.active {
+  background-color: #1a1a1a;
+  color: white;
+}
 footer {
   margin-top: 50px;
   display: flex;

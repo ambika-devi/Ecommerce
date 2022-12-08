@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.4.1/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <title>E-Commerce Project</title>
   </head>
   <body>
@@ -34,7 +34,7 @@
               <li class="Item-price-heading">Price ($)</li>
               <li class="Item-quantity-heading">Quantity</li>
             </div>
-            <!-- <div class="cart-item">
+             <div class="cart-item">
               <li class="item-name">album1</li>
               <li class="item-price">10</li>
               <li class="item-quantity">
@@ -50,7 +50,7 @@
     <header class="main-header"><h2>The Generics</h2></header>
     <section class="section-container" onclick="addToCart(event)">
       <h3 class="section-header">MUSIC</h3>
-      <!-- <div class="img-container">
+       <div class="img-container">
         <div class="img">
           <h3 class="img-heading">Album 1</h3>
           <img
@@ -94,11 +94,11 @@
             <p class="img-price">$30.78</p>
             <button id="4">Add to Cart</button>
           </div>
-        </div> -->
+        </div> 
         </div>
     </section>
 
-    <section class="section-container" onclick="addToCart(event)">
+     <section class="section-container" onclick="addToCart(event)">
       <h3 class="section-header">MERCH</h3>
       <div class="img-container">
         <div class="img">
@@ -124,10 +124,14 @@
           </div>
         </div>
        </div>
-    </section>
-    <aside class="view-cart">
+    </section> 
+    <aside class="view-cart" onclick="showCart()">
       <button>View the cart</button>
     </aside>
+    <section class="pagination" onclick="changePage(event)">
+      <button>1</button>
+      <button class="active">2</button>
+    </section>
     <footer>
       <div class="footer-title"><h1>The Generics</h1></div>
       <div class="footer-icons">
@@ -144,6 +148,14 @@
             <a href="#">
               <img
                 src="https://prasadyash2411.github.io/ecom-website/img/Spotify%20Logo.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://prasadyash2411.github.io/ecom-website/img/Facebook%20Logo.png"
                 alt=""
               />
             </a>
