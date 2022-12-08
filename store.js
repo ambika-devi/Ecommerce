@@ -4,6 +4,18 @@ const cart = document.querySelector(".cart-container");
 const cartBody = document.querySelector(".cart-body ul");
 const body = document.querySelector("body");
 
+const createOrder = async (e) => {
+  try {
+    const response = await axios.post("http://localhost:3000/orders", {});
+    // console.log(response.data.msg);
+    createToast(response.data.msg);
+  } catch (error) {
+    // console.log(error);
+    console.log(error.response.data.msg);
+    createToast(error.response.data.msg);
+  }
+};
+
 //simple dom manipulation to find total
 const findTotal = () => {
   const cartItems = document.querySelectorAll(".cart-item");
@@ -139,7 +151,8 @@ const addToCart = async (e) => {
         createToast("Product added to the cart");
         showCart();
       } catch (err) {
-        console.log(response.data.msg);
+       // console.log(response.data.msg);
+       console.log(err);
       }
     }
   }
@@ -183,15 +196,18 @@ const displayPagination = ({
     pagination.innerHTML = ` <button >${previousPage}</button>
     <button class="active">${currentPage}</button>
     <button >${nextPage}</button>`;
-  } else if (!hasPreviousPage && hasNextPage) {
+  }
+   else if (!hasNextPage && !hasPreviousPage) {
+    pagination.innerHTML = `<button class="active">${currentPage}</button>`;
+  }
+   else if (!hasPreviousPage && hasNextPage) {
     pagination.innerHTML = `<button class="active">${currentPage}</button>
     <button >${nextPage}</button>`;
-  } else if (!hasNextPage) {
+  }
+   else if (hasPreviousPage && !hasNextPage) {
     pagination.innerHTML = `<button>${previousPage}</button>
     <button class="active">${currentPage}</button>`;
-  } else if (!hasNextPage && !hasPreviousPage) {
-    pagination.innerHTML = `<button class="active">${previousPage}</button>`;
-  }
+  } 
 };
 
 //to get all the products from backend
